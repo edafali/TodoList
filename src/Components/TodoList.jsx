@@ -1,5 +1,4 @@
-import React from "react";
-
+import { Toaster, toast } from "sonner";
 export default function TodoList({ Tasks, handlDeleteTask, HandlUpdateTask }) {
   return (
     <>
@@ -7,7 +6,6 @@ export default function TodoList({ Tasks, handlDeleteTask, HandlUpdateTask }) {
         <table className="table">
           <thead className="text-lg ">
             <tr>
-              
               <th>Tasks</th>
               <th>Delete</th>
               <th>Update</th>
@@ -17,7 +15,6 @@ export default function TodoList({ Tasks, handlDeleteTask, HandlUpdateTask }) {
             {Tasks.map((task, index) => {
               return (
                 <tr key={index}>
-                  
                   <td>{task} </td>
                   <td>
                     <button

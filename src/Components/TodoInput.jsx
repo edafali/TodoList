@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-
+import { Toaster, toast } from "sonner";
 export default function TodoInput({ handlInput, TaskValue, setTaskValue }) {
+  function notify() {
+    toast.warning("Please enter your task");
+  }
+
   return (
     <>
-      <h1 className="text-5xl font-bold text-success font-">To do List App</h1>
+      <h1 className="text-4xl font-bold text-success font-">To do List App</h1>
       <input
         value={TaskValue}
         onChange={(e) => {
@@ -16,12 +20,13 @@ export default function TodoInput({ handlInput, TaskValue, setTaskValue }) {
       <button
         className="btn btn-success mb-3 w-full"
         onClick={() => {
-          handlInput(TaskValue);
+          TaskValue !== "" ? handlInput(TaskValue) : notify();
           setTaskValue("");
         }}
       >
         Add Task
       </button>
+      <Toaster richColors position="top-right" />
     </>
   );
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import TodoInput from "./Components/TodoInput";
 import TodoList from "./Components/TodoList";
+import { Toaster, toast } from "sonner";
 function App() {
   const [tasks, setTask] = useState([]);
   const [TaskValue, setTaskValue] = useState("");
@@ -14,7 +15,9 @@ function App() {
     const newTasksList = [...tasks, newTask];
     setTask(newTasksList);
     ToLocal(newTasksList);
+    toast.success("Task has been created");
   };
+  <Toaster richColors />;
   // Delete Function
   const handlDeleteTask = (index) => {
     const newTaskList = tasks.filter((task, indexOfTask) => {
@@ -22,6 +25,7 @@ function App() {
     });
     setTask(newTaskList);
     ToLocal(newTaskList);
+    
   };
   // Update Function
   const HandlUpdateTask = (index) => {
